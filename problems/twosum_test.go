@@ -22,23 +22,49 @@ import (
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
-//暴力解法
+/**
+  暴力解法
+  时间复杂度n2
+ */
 func twoSum1(nums []int, target int) []int {
-	var keys []int
 	for i:=0;i<len(nums);i++{
 		for j := i+1;j<len(nums);j++{
-			if (nums[i] + nums[j]) ==target{
-				keys = append(keys,i,j)
+			if  nums[j] == target - nums[i]{
+				return  []int{i,j}
 			}
 		}
 	}
-	return keys
+	return []int{0,0}
 }
 
 func TestTwosum1(t *testing.T){
 	var nums =[]int{3,2,3}
 	var target=6
 	keys := twoSum1(nums,target)
+
+	fmt.Println(keys)
+}
+
+/**
+	比较常用到且比较经典的一遍Hash用法
+时间复杂度n
+ */
+func twoSum2(nums []int, target int) []int {
+	var mapnum = make(map[int]int,0)
+	for i,v := range nums{
+		j,exit := mapnum[v]
+		if exit{
+			return []int{i,j}
+		}
+		mapnum[target-v]=i
+	}
+	return nil
+}
+
+func TestTwosum2(t *testing.T){
+	var nums =[]int{3,2,3}
+	var target=6
+	keys := twoSum2(nums,target)
 
 	fmt.Println(keys)
 }
