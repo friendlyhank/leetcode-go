@@ -138,31 +138,3 @@ func TestIntToRoman2(t *testing.T){
 	str := intToRoman2(58)
 	t.Logf("%v",str)
 }
-
-/*
- *在第二个方法上稍微做改进
- *通过	8 ms	3.7 MB
- */
-func intToRoman3(num int) string{
-	romanChar :=[]string{"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"}
-	romanNum := []int{1000,900,500,400,100,90,50,40,10,9,5,4,1}
-
-	var buffer bytes.Buffer
-	var j = 0
-	for num != 0 {
-		for i := j;j<len(romanNum);i ++{
-			if num >= romanNum[i]{
-				num -= romanNum[i]
-				buffer.WriteString(romanChar[i])
-				j=i
-				break
-			}
-		}
-	}
-	return buffer.String()
-}
-
-func TestIntToRoman3(t *testing.T){
-	str := intToRoman3(58)
-	t.Logf("%v",str)
-}
