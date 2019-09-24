@@ -34,6 +34,7 @@ import (
 /*
  *自解法(自己写的,不一定最优哦)
  *转化字符串看依次检查字符串是否是对称的，长度是奇数个的时候忽略中间那个
+通过	16 ms	5.2 MB
  */
 func isPalindrome1(x int) bool {
 	str := strconv.Itoa(x)
@@ -53,6 +54,7 @@ func TestIsPalindrome1(t *testing.T){
 /*
  *自解法(自己写的,不一定最优哦)
  *数字反转,然后判断反转之后是否相当即可
+通过	20 ms	5 MB
  */
 func isPalindrome2(x int) bool {
 	//负数和反转之后首位为0

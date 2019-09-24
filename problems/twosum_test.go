@@ -25,6 +25,7 @@ import (
 /**
   暴力解法
   时间复杂度n2
+  通过	60 ms	3 MB	Golang
  */
 func twoSum1(nums []int, target int) []int {
 	for i:=0;i<len(nums);i++{
@@ -47,7 +48,8 @@ func TestTwosum1(t *testing.T){
 
 /**
 	比较常用到且比较经典的一遍Hash用法
-时间复杂度n
+	时间复杂度n
+	通过	4 ms	3.8 MB
  */
 func twoSum2(nums []int, target int) []int {
 	var mapnum = make(map[int]int,0)
